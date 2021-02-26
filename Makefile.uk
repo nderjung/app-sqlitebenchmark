@@ -1,0 +1,4 @@
+$(eval $(call addlib,appsqlitebenchmark))
+
+APPSQLITEBENCHMARK_SRCS-y += $(APPSQLITEBENCHMARK_BASE)/main.c
+APPSQLITEBENCHMARK_CINCLUDES-y += -I$(APPSQLITEBENCHMARK_BASE)/include
