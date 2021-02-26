@@ -25,12 +25,6 @@ int main(int argc, char **argv){
   char *zErrMsg = 0;
   int rc;
 
-  rc = sqlite3_open(DB_NAME, &db);
-  if( rc ){
-    fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
-    return(1);
-  }
-
   struct timespec start;
   if (clock_gettime(CLOCK_MONOTONIC, &start)) {
     perror("Could not read start time!");
@@ -38,6 +32,12 @@ int main(int argc, char **argv){
     return 1;
   }
   
+  rc = sqlite3_open(DB_NAME, &db);
+  if( rc ){
+    fprintf(stderr, "Can't open database: %s\n", sqlite3_errmsg(db));
+    return(1);
+  }
+
   for (int i = 0; i < OP_NUM; i++) {
         rc = sqlite3_exec(db, DB_QUERY, callback, 0, &zErrMsg);
 
