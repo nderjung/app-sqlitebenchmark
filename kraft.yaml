@@ -1,0 +1,24 @@
+specification: '0.5'
+
+name: sqlitebenchmark
+
+unikraft:
+  version: '0.5'
+
+targets:
+  - architecture: x86_64
+    platform: kvm
+
+libraries:
+  pthread-embedded:
+    version: 2dd7129
+  newlib:
+    version: ddc25cf
+  sqlite:
+    version: 21ec31d
+  tlsf:
+    version: 4c81761
+  tinyalloc:
+    version: 49f1efc
+  mimalloc:
+    version: '0.5'
